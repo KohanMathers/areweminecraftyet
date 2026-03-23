@@ -20,7 +20,7 @@ const statusClasses: Record<ComplianceState, string> = {
 
 const statusCopy: Record<ComplianceState, string> = {
   compliant: "Yes",
-  "in-progress": "Not yet",
+  "in-progress": "No",
 };
 
 function StatCard({

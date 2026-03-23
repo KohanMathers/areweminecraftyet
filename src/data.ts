@@ -22,6 +22,16 @@ export const projects: Project[] = [
     version: "Experimental",
   },
   {
+    name: "Minestom Vibenilla",
+    sourceUrl: "https://github.com/vibenilla/server",
+    status: "in-progress",
+    summary:
+      "A Minestom-based server project that is still working toward full vanilla parity.",
+    language: "Java",
+    focus: "Minestom fork",
+    version: "Experimental",
+  },
+  {
     name: "Pumpkin",
     sourceUrl: "https://github.com/Pumpkin-MC/Pumpkin",
     status: "in-progress",
