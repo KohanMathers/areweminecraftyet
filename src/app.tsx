@@ -97,7 +97,7 @@ export function App({ initialProjects = projects }: AppProps) {
             label="Still in progress"
             value={String(initialProjects.length - compliantCount)}
           />
-          <StatCard label="Hydrated filters" value="Live" />
+          <StatCard label="Interactive filters" value="Live" />
         </section>
 
         <section className="mt-8 rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur">
