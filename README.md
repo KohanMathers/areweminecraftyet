@@ -18,3 +18,4 @@ Pull requests are welcome!
 
 ### Thanks
 - [GoldenStack](https://github.com/GoldenStack) For the inspiration with [dayssincelastrustmcserver](https://github.com/GoldenStack/dayssincelastrustmcserver).
+- [kermandev](https://github.com/kermandev) For the original [areweminecraftyet](https://github.com/kermandev/areweminecraftyet)
