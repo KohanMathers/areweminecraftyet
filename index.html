@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are We Minecraft Yet: Still Waiting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>Are We Minecraft Yet: Still Waiting</h1>
+            <p class="header-sub">
+                Tracking whether alternative Minecraft server implementations have achieved full vanilla
+                compliance, including vanilla quirks.
+            </p>
+        </div>
+    </header>
+
+    <div class="verdict">
+        <div class="verdict-label">Current Status</div>
+        <div class="verdict-answer" id="verdict-text">NOT YET</div>
+        <div class="verdict-sub">No alternative server has reached full vanilla compliance.</div>
+        <div class="verdict-count" id="verdict-count">
+            <span id="count-yes">0</span> / <span id="count-total">0</span> servers fully compliant
+        </div>
+    </div>
+
+    <section class="compliance-rules">
+        <div class="rules-inner">
+            <div class="rules-title">Compliance Categories</div>
+            <p class="rules-sub">Servers can be more or less compliant. The verdict counts only Full compliance.</p>
+            <div class="rules-grid">
+                <div class="rule-card rule-full">
+                    <div class="rule-label">Full</div>
+                    <p class="rule-text">All mechanics, quirks, and known vanilla bugs are matched. No intentional behavioral deviations.</p>
+                </div>
+                <div class="rule-card rule-mostly">
+                    <div class="rule-label">Mostly</div>
+                    <p class="rule-text">Core gameplay matches vanilla with only minor edge-case or timing differences.</p>
+                </div>
+                <div class="rule-card rule-partial">
+                    <div class="rule-label">Partial</div>
+                    <p class="rule-text">Major systems are implemented, but significant gaps or inconsistencies remain.</p>
+                </div>
+                <div class="rule-card rule-experimental">
+                    <div class="rule-label">Experimental</div>
+                    <p class="rule-text">Early-stage builds with limited feature coverage and frequent breaking bugs.</p>
+                </div>
+                <div class="rule-card rule-forked">
+                    <div class="rule-label">Forked</div>
+                    <p class="rule-text">Intentionally diverges from vanilla behavior to change gameplay or improve performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="filter-group">
+            <div class="filter-row">
+                <span class="filter-label">Language</span>
+                <button class="filter-btn active" data-filter-lang="all">All</button>
+                <button class="filter-btn lang-java" data-filter-lang="java">Java</button>
+                <button class="filter-btn lang-rust" data-filter-lang="rust">Rust</button>
+                <button class="filter-btn lang-csharp" data-filter-lang="csharp">C#</button>
+                <button class="filter-btn lang-cpp" data-filter-lang="cpp">C++</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Type</span>
+                <button class="filter-btn active" data-filter-type="all">All</button>
+                <button class="filter-btn type-reimpl" data-filter-type="reimplementation">Reimplementation</button>
+                <button class="filter-btn type-fork" data-filter-type="fork">Fork</button>
+            </div>
+        </div>
+
+        <div class="servers-grid" id="servers-grid">
+            <div class="empty-state" id="empty-state">No servers match<br>your filters.</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-contribute">
+                Missing something? Open an issue or pull request
+                <a href="https://github.com/kermandev/areweminecraftyet">on GitHub</a>.
+            </p>
+            <hr class="footer-divider">
+            <div class="footer-thanks">
+                Thanks to <a href="https://github.com/GoldenStack">GoldenStack</a> for the inspiration via
+                <a href="https://github.com/GoldenStack/dayssincelastrustmcserver">dayssincelastrustmcserver</a>,
+                and to <a href="https://github.com/kermandev">kermandev</a> for the
+                <a href="https://github.com/kermandev/areweminecraftyet">original project</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
