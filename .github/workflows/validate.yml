@@ -1,0 +1,23 @@
+name: Validate servers.json
+
+on:
+  pull_request:
+    paths:
+      - "servers.json"
+  push:
+    paths:
+      - "servers.json"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate servers.json
+        run: node scripts/validate.js

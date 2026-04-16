@@ -1,102 +1,3 @@
-const SERVERS = [
-    {
-        name: "Minestom VRI",
-        url: "https://github.com/Minestom/VanillaReimplementation/",
-        sourceLabel: "GitHub",
-        compliance: "experimental",
-        language: "java",
-        type: "reimplementation",
-        mcVersion: "1.20.1",
-        status: "wip",
-        description: "A Minestom extension working toward full vanilla behavior reimplementation.",
-        forkNote: null,
-    },
-    {
-        name: "Minestom Vibenilla",
-        url: "https://github.com/vibenilla/server",
-        sourceLabel: "GitHub",
-        compliance: "experimental",
-        language: "java",
-        type: "reimplementation",
-        mcVersion: "1.21.11",
-        status: "wip",
-        description: "Another Minestom-based server aiming for vanilla compliance.",
-        forkNote: null,
-    },
-    {
-        name: "Pumpkin",
-        url: "https://github.com/Pumpkin-MC/Pumpkin",
-        sourceLabel: "GitHub",
-        compliance: "partial",
-        language: "rust",
-        type: "reimplementation",
-        mcVersion: "1.21.8",
-        status: "wip",
-        description: "A Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.",
-        forkNote: null,
-    },
-    {
-        name: "Paper",
-        url: "https://github.com/PaperMC/Paper",
-        sourceLabel: "GitHub",
-        compliance: "forked",
-        language: "java",
-        type: "fork",
-        mcVersion: "1.21.x",
-        status: "active",
-        description: "A widely-used Spigot fork that intentionally diverges from vanilla behavior for performance and gameplay improvements.",
-        forkNote: "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.",
-    },
-    {
-        name: "FerrumC",
-        url: "https://github.com/ferrumc-rs/ferrumc",
-        sourceLabel: "GitHub",
-        compliance: "experimental",
-        language: "rust",
-        type: "reimplementation",
-        mcVersion: "1.21.8",
-        status: "wip",
-        description: "A 1.21.8 Minecraft server implementation written from the ground up in Rust. Leveraging the power of the Rust programming language, it is completely multithreaded and offers high performance as well as amazing memory efficiency.",
-        forkNote: null,
-    },
-    {
-        name: "Obsidian",
-        url: "https://github.com/ObsidianMC/Obsidian",
-        sourceLabel: "GitHub",
-        compliance: "partial",
-        language: "csharp",
-        type: "reimplementation",
-        mcVersion: "1.21.8",
-        status: "wip",
-        description: "A C# .NET implementation of the Minecraft server protocol.",
-        forkNote: null,
-    },
-    {
-        name: "VectoraServer",
-        url: "https://github.com/Hardrivetech/VectoraServer",
-        sourceLabel: "GitHub",
-        compliance: "experimental",
-        language: "cpp",
-        type: "reimplementation",
-        mcVersion: "1.21.11",
-        status: "wip",
-        description: "A high-performance custom Minecraft Java Edition 1.21.11 server written in modern C++20.",
-        forkNote: null,
-    },
-    {
-        name: "Wrench",
-        url: "https://github.com/KohanMathers/Wrench",
-        sourceLabel: "GitHub",
-        compliance: "forked",
-        language: "java",
-        type: "fork",
-        mcVersion: "1.21.11",
-        status: "wip",
-        description: "A server focused on observability and control first, with compatibility planned as a later phase.",
-        forkNote: "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.",
-    },
-];
-
 const LANG_LABELS = { java: "Java", rust: "Rust", go: "Go", cpp: "C++", csharp: "C#" };
 const STATUS_LABELS = { active: "Active", wip: "WIP", abandoned: "Abandoned" };
 const TYPE_LABELS = { reimplementation: "Reimplementation", fork: "Fork" };
@@ -117,6 +18,7 @@ const COMPLIANCE_SCORES = {
 
 let activeLang = "all";
 let activeType = "all";
+let SERVERS = [];
 
 function buildCards() {
     const grid = document.getElementById("servers-grid");
@@ -209,7 +111,12 @@ document.querySelectorAll("[data-filter-type]").forEach(btn => {
     });
 });
 
-buildCards();
-updateVerdict();
+fetch("servers.json")
+    .then(r => r.json())
+    .then(data => {
+        SERVERS = data.servers;
+        buildCards();
+        updateVerdict();
+    });
 
 
